@@ -1,5 +1,5 @@
-using System.Reflection;
 using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 using OData.Demo.Core.Features.Clients.Models;
@@ -24,13 +24,13 @@ builder.Services.AddInfrastructure(builder.Configuration);
 // Add MediatR
 builder.Services.AddMediatR(cfg => {
     cfg.RegisterServicesFromAssemblies(
-        Assembly.GetExecutingAssembly(),
-        Assembly.Load("OData.Demo.Core")
+        typeof(Program).Assembly,
+        typeof(ClientDto).Assembly
     );
 });
 
 // Add AutoMapper
-builder.Services.AddAutoMapper(Assembly.Load("OData.Demo.Core"));
+builder.Services.AddAutoMapper(typeof(ClientDto).Assembly);
 
 // Add Swagger
 builder.Services.AddEndpointsApiExplorer();

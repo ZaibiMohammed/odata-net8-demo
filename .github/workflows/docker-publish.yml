@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ZaibiMohammed/odata-net8-demo
+  IMAGE_NAME: zaibimohammed/odata-net8-demo
 
 jobs:
   docker:
